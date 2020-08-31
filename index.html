@@ -4,46 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muna Investments Group</title>
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-    crossorigin="anonymous"
-  />
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Manu Investments Group</h1>
-      <h2 class="display-4">Today's Picks</h2>
-      <p class="lead">Facebook-------Alphabet----Amazon----Apple-------Netflix-------Tesla </p>
-      <p><label for="Facebook"></label> <img src="images\aaple stock.PNG" alt="" srcset="" width="100px"> <label for="Facebook"></label> <img src="images\aaple stock.PNG" alt="" srcset="" width="100px"><label for="Facebook"></label> <img src="images\aaple stock.PNG" alt="" srcset="" width="100px"><label for="Facebook"></label> <img src="images\aaple stock.PNG" alt="" srcset="" width="100px"><label for="Facebook"></label> <img src="images\aaple stock.PNG" alt="" srcset="" width="100px"><label for="Facebook"></label> <img src="images\aaple stock.PNG" alt="" srcset="" width="100px" for="Facebook"></label> <img src="images\aaple stock.PNG" alt="" srcset="" width="100px"></p>
-    </div>
-  </div>
-</head>
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4 text-center">Muna Investments Group</h1>
+        <h3 class="text-center">Today's Picks</h3>
+        <p class="text-center lead">
+          Facebook-------Alphabet----Amazon----Apple-------Netflix-------Tesla
+        </p>
+      </div>
+    </div>
     <div class="row">
       <div class="col-3">
-        <form id="">
+        <form id="form">
           <div class="form-group">
-            <label for="name">Stock</label>
+            <h4 class="text-center">Stock Symbol</h4>
             <input
               type="text"
-              id="name"
+              id="stock_symbol"
               required
               minlength="1"
-              class="form-group"
+              class="form-control"
               placeholder="Enter Stock Symbol"
             />
-
-            <button type="submit" id="submit_btn" class="btn btn-primary">
-              Search
+            <button
+              type="button"
+              id="add_button"
+              class="btn btn-primary btn-block"
+            >
+              Add to Wish List
             </button>
+            <img src="logo first draft.PNG" alt="" />
           </div>
         </form>
-
-        <div id="results" class="col-9"></div>
       </div>
+      <div id="results" class="col-9"></div>
     </div>
 
     <script
@@ -64,7 +69,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <img src="logo first draft.PNG" alt="logo" />
     <script src="script.js"></script>
   </body>
 </html>
