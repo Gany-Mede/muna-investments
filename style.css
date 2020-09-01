@@ -3,3 +3,12 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.btn-dark {
+  padding: 5px;
+  margin: 30px;
+}
+
+#container {
+  padding: 10px;
+}
