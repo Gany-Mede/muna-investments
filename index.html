@@ -46,9 +46,9 @@
     <div id="after-jumb">
       <div class="row">
         <div class="col-3">
-          <form id="form">
+          <form id="form" onsubmit="return false">
             <div class="form-group">
-              <h4 class="text-center">Stock Symbol</h4>
+              <h4 id="label" class="text-center">Stock Symbol</h4>
               <input
                 type="text"
                 id="stock_symbol"
@@ -60,7 +60,7 @@
               <button
                 type="button"
                 id="add_button"
-                class="btn btn-primary btn-block"
+                class="btn btn-block btn-success"
               >
                 Add to Wish List
               </button>

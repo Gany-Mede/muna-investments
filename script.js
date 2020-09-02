@@ -73,8 +73,6 @@ function getData() {
 
       percentageTag.style.color = percentage > 0 ? "green" : "red";
 
-      calculatePercent(currentPrice, previousClose);
-
       //button logo
       let addToFav = document.createElement("input");
       addToFav.type = "image";
@@ -89,7 +87,4 @@ function getData() {
 }
 function addCard() {
   getData();
-}
-function calculatePercent(current, close) {
-  return percentage > 0 ? true : false;
 }
