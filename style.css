@@ -4,6 +4,11 @@
   justify-content: center;
 }
 
+#jumb {
+  background-image: url("logomedium.png");
+  background-repeat: no-repeat;
+}
+
 .btn-dark {
   padding: 5px;
   margin: 30px;
@@ -11,4 +16,7 @@
 
 #container {
   padding: 10px;
+}
+#card {
+  text-align: center;
 }
