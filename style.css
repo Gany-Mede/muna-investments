@@ -1,3 +1,7 @@
+.row {
+  margin: 5px;
+}
+
 #results {
   display: flex;
   flex-wrap: wrap;
@@ -19,4 +23,7 @@
 }
 #card {
   text-align: center;
+  background-color: #f5f5f5;
+  margin-left: 10px;
+  margin-right: 10px;
 }

@@ -4,6 +4,7 @@ let companyName;
 let symbol;
 let previousClose;
 let currentPrice;
+let percentage;
 
 function getData() {
   const beginURL = "https://cloud.iexapis.com/stable/stock/";
@@ -20,11 +21,6 @@ function getData() {
       companyName = data.companyName;
       previousClose = data.previousClose;
       currentPrice = data.iexRealtimePrice;
-
-      console.log(companyName);
-      console.log(symbol);
-      console.log(previousClose);
-      console.log(currentPrice);
 
       let card = document.createElement("div");
       card.id = "card";
@@ -50,8 +46,24 @@ function getData() {
       let currentPriceTag = document.createElement("h5");
       currentPriceTag.className = "card-title text-center";
       currentPriceTag.innerHTML = "$" + currentPrice;
+      currentPriceTag.style.color = "orange";
       cardBody.append(currentPriceTag);
 
+      percentage = (
+        ((currentPrice - previousClose) / previousClose) *
+        100
+      ).toFixed(2);
+
+      let percentageTag = document.createElement("h5");
+      percentageTag.className = "card-title text-center";
+      percentageTag.innerHTML = percentage + "%";
+      cardBody.append(percentageTag);
+
+      percentageTag.style.color = percentage > 0 ? "green" : "red";
+
+      calculatePercent(currentPrice, previousClose);
+
+      //button logo
       let addToFav = document.createElement("input");
       addToFav.type = "image";
       addToFav.id = "addFav";
@@ -63,7 +75,9 @@ function getData() {
 
   document.forms["form"].reset();
 }
-
 function addCard() {
   getData();
+}
+function calculatePercent(current, close) {
+  return percentage > 0 ? true : false;
 }
