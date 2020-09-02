@@ -33,7 +33,7 @@
         <div class="container text-center">
           <div class="col-10">
             <h1 id="app_name" class="display-4 text-center">
-              Muna Investments Group.
+              Muna Investments Group
             </h1>
             <br />
             <br />
@@ -73,7 +73,48 @@
               </button>
             </div>
           </form>
+          <!-- what if form-->
+          <div id="second-form">
+        <form id="form2" onsubmit="return false">
+          <div class="form-group">
+            <h4 id="label" class="text-center">What if?!</h4>
+            <input
+            type="text"
+            id="stock_symbol_inv"
+            required
+            minlength="1"
+            class="form-control"
+            placeholder="Stock Symbol"
+          />
+            <input
+              type="text"
+              id="ammount_inv"
+              required
+              minlength="1"
+              class="form-control"
+              placeholder="Investment dollar amount"
+            />
+            <input
+            type="text"
+            id="date_inv"
+            required
+            minlength="1"
+            class="form-control"
+            placeholder="Date"
+          />
+        <label id="what_if_result"></label>
+            <button
+              type="button"
+              id="calc_button"
+              class="btn btn-block btn-success"
+            >
+              Calculate
+            </button>
+          </div>
+        </form>
         </div>
+      </div>
+      </div>
         <div id="results" class="col-9"></div>
       </div>
     </div>
