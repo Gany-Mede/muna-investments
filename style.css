@@ -1,18 +1,27 @@
 .row {
   margin: 5px;
 }
-
+#jumb {
+  margin: 0px 0px 0px;
+  padding: 5px 0px 5px;
+}
+#app_name {
+  font-family: "Noto Serif", serif;
+}
+#picks {
+  font-family: "Slabo 27px", serif;
+}
 #results {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
-#jumb {
-  background-image: url("logomedium.png");
-  background-repeat: no-repeat;
+#scroll-text {
+  font-family: "Noto Serif", serif;
 }
-
+#after-jumb {
+  padding-top: 15px;
+}
 .btn-dark {
   padding: 5px;
   margin: 30px;
@@ -26,4 +35,5 @@
   background-color: #f5f5f5;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
 }

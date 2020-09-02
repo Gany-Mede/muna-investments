@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muna Investments Group</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&family=Slabo+27px&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="shortcut icon" href="logo.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -16,48 +21,55 @@
   </head>
   <body>
     <div id="jumb" class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4 text-center">Muna Investments Group</h1>
-        <h3 class="text-center">Today's Picks</h3>
-        <p class="text-center lead">
-          <!--- Facebook-------Alphabet----Amazon----Apple-------Netflix-------Tesla
-        </p> -->
-
-          <button type="button" class="btn btn-dark">FACEBOOK</button>
-          <button type="button" class="btn btn-dark">ALPHABET</button>
-          <button type="button" class="btn btn-dark">APPLE</button>
-          <button type="button" class="btn btn-dark">NETFLIX</button>
-          <button type="button" class="btn btn-dark">TESLA</button>
-          <button type="button" class="btn btn-dark">AMAZON</button>
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <form id="form">
-          <div class="form-group">
-            <h4 class="text-center">Stock Symbol</h4>
-            <input
-              type="text"
-              id="stock_symbol"
-              required
-              minlength="1"
-              class="form-control"
-              placeholder="Enter Stock Symbol"
-            />
-            <button
-              type="button"
-              id="add_button"
-              class="btn btn-primary btn-block"
-            >
-              Add to Wish List
-            </button>
+      <div class="row">
+        <div class="col-2">
+          <img id="logo" src="logoround.png" alt="" />
+        </div>
+        <div class="container text-center">
+          <div class="col-10">
+            <h1 id="app_name" class="display-4 text-center">
+              Muna Investments Group
+            </h1>
+            <h3 id="picks" class="text-center">Today's Picks</h3>
+            <p class="text-center lead">
+              <span class="badge badge-primary">Facebook</span>
+              <span class="badge badge-secondary">Apple</span>
+              <span class="badge badge-success">Amazon</span>
+              <span class="badge badge-danger">Netflix</span>
+              <span class="badge badge-warning">Google</span>
+            </p>
           </div>
-        </form>
+        </div>
       </div>
-      <div id="results" class="col-9"></div>
+      <marquee id="scroll-text" behavior="scroll" direction="left"></marquee>
     </div>
-
+    <div id="after-jumb">
+      <div class="row">
+        <div class="col-3">
+          <form id="form">
+            <div class="form-group">
+              <h4 class="text-center">Stock Symbol</h4>
+              <input
+                type="text"
+                id="stock_symbol"
+                required
+                minlength="1"
+                class="form-control"
+                placeholder="Enter Stock Symbol"
+              />
+              <button
+                type="button"
+                id="add_button"
+                class="btn btn-primary btn-block"
+              >
+                Add to Wish List
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="results" class="col-9"></div>
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

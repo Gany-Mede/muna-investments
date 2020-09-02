@@ -5,6 +5,18 @@ let symbol;
 let previousClose;
 let currentPrice;
 let percentage;
+let runningText = "";
+
+fetch(
+  "https://cloud.iexapis.com/v1/stock/market/batch?types=news&symbols=dow,&token=pk_93c31736e1884c4d9585a581f9a431d6"
+)
+  .then((news) => news.json())
+  .then((data) => {
+    data.DOW.news.forEach((item) => {
+      runningText += item.headline;
+    });
+    document.getElementById("scroll-text").innerHTML = runningText;
+  });
 
 function getData() {
   const beginURL = "https://cloud.iexapis.com/stable/stock/";
