@@ -137,3 +137,14 @@ function getData() {
 function addCard() {
   getData();
 }
+
+document
+  .getElementById("calc_button")
+  .addEventListener("click", calculateWhatIf);
+
+function calculateWhatIf() {
+  let input_inv = document.getElementById("stock_symbol_inv").value;
+  let stock_inv = input_inv.toLowerCase();
+  let ammount_inv = document.getElementById("ammount_inv").value;
+  let date = document.getElementById("date_inv").value;
+}

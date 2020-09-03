@@ -23,7 +23,7 @@
   font-family: "Noto Serif", serif;
 }
 #after-jumb {
-  padding-top: 15px;
+  padding-top: 40px;
 }
 .btn-dark {
   padding: 5px;
@@ -41,4 +41,10 @@
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
+}
+#second-form {
+  padding-top: 70px;
+}
+.form-control {
+  margin-bottom: 5px;
 }

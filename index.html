@@ -47,10 +47,6 @@
               <span class="badge badge-warning">Google</span>
             </p>
           </div>
-
-          <div class="col-2">
-            <img id="logo" src="logoround.png" alt="" />
-          </div>
         </div>
       </div>
       <marquee id="scroll-text" behavior="scroll" direction="left"></marquee>
@@ -78,8 +74,51 @@
               </button>
             </div>
           </form>
+          <!-- what if form-->
+          <div id="second-form">
+        <form id="form2" onsubmit="return false">
+          <div class="form-group">
+            <h4 id="label" class="text-center">What if?!</h4>
+            <input
+            type="text"
+            id="stock_symbol_inv"
+            required
+            minlength="1"
+            class="form-control"
+            placeholder="Stock Symbol"
+          />
+            <input
+              type="text"
+              id="ammount_inv"
+              required
+              minlength="1"
+              class="form-control"
+              placeholder="Investment dollar amount"
+            />
+            <input
+            type="text"
+            id="date_inv"
+            required
+            minlength="1"
+            class="form-control"
+            placeholder="Date"
+          />
+        <label id="what_if_result"></label>
+            <button
+              type="button"
+              id="calc_button"
+              class="btn btn-block btn-success"
+            >
+              Calculate
+            </button>
+          </div>
+        </form>
         </div>
-        <div id="results" class="col-9"></div>
+      </div>
+
+      <div id="results" class="col-9"></div>
+
+      </div>
       </div>
     </div>
     <script
