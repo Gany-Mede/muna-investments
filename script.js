@@ -9,9 +9,7 @@ let runningText = "";
 let fiveMonths = [];
 let stock;
 let historicalObject;
-fetch(
-  "https://api.currentsapi.services/v1/search?keywords=NASDAQ&apiKey=lM5U7IsA_4X3K9ptIETiYPQrnZYhIHDd8puZBu8xo2_uA-5P"
-)
+fetch("https://munabackend.herokuapp.com/news")
   .then((news) => news.json())
   .then((data) => {
     data.news.forEach((item) => {
@@ -21,14 +19,10 @@ fetch(
   });
 
 function getData() {
-  const beginURL =
-    "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=";
-  const endURL = "&apikey=DNWKKV20PPR5UY6Q";
   const input = document.getElementById("stock_symbol").value;
   stock = input.toLowerCase();
-  const apiURL = beginURL + stock + endURL;
 
-  fetch(apiURL)
+  fetch(`https://munabackend.herokuapp.com/vant1/${stock}`)
     .then((response) => response.json())
     .then((data) => {
       symbol = data["Global Quote"]["01. symbol"];
@@ -50,9 +44,6 @@ function getData() {
 }
 
 function addInfo(stock) {
-  beginUrlInfo = "https://www.alphavantage.co/query?function=OVERVIEW&symbol=";
-  endUrlInfo = "&apikey=PW8QG04LKVP3H7Y5";
-  completeURLInfo = beginUrlInfo + stock + endUrlInfo;
   let name;
   let address;
   let industry;
@@ -62,7 +53,7 @@ function addInfo(stock) {
   let splitRatio;
   let analystTarget;
 
-  fetch(completeURLInfo)
+  fetch(`https://munabackend.herokuapp.com/vant2/${stock}`)
     .then((resInfo) => resInfo.json())
     .then((dataInfo) => {
       name = dataInfo.Name;
@@ -132,13 +123,8 @@ function createCard(symbol, currentPrice, percentage) {
   cardBody.append(percentageTag);
   percentageTag.style.color = percentage > 0 ? "green" : "red";
 
-  const beginChart =
-    "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=";
-  const endChart = "&apikey=Y11A972UH1743H94";
-  const chartURL = beginChart + stock + endChart;
-
   fiveMonths = [];
-  fetch(chartURL)
+  fetch(`https://munabackend.herokuapp.com/vant3/${stock}`)
     .then((chart) => chart.json())
     .then((chartData) => {
       let charObj = Object.entries(chartData["Time Series (Daily)"]);
