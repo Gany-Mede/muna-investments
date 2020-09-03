@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&family=Slabo+27px&display=swap"
       rel="stylesheet"
     />
-
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="logo.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -28,24 +28,12 @@
   <body>
     <div id="jumb" class="jumbotron jumbotron-fluid">
       <div class="row">
-        <div class="col-2">
-          <img id="logo" src="logoround.png" alt="" />
-        </div>
         <div class="container text-center col-8">
-          <div class="col-10">
+          <div class="col-12">
             <h1 id="app_name" class="display-4 text-center">
               Muna Investments Group
             </h1>
-            <br />
-            <br />
-
-            <p class="text-center lead">
-              <span class="badge badge-primary">Facebook</span>
-              <span class="badge badge-secondary">Apple</span>
-              <span class="badge badge-success">Amazon</span>
-              <span class="badge badge-danger">Netflix</span>
-              <span class="badge badge-warning">Google</span>
-            </p>
+            <img id="logo" src="logoround.png" alt="" />
           </div>
         </div>
       </div>
@@ -54,6 +42,7 @@
     <div id="after-jumb">
       <div class="row">
         <div class="col-3">
+          <div id=left-form>
           <form id="form" onsubmit="return false">
             <div class="form-group">
               <h4 id="label" class="text-center">Stock Symbol</h4>
@@ -74,53 +63,57 @@
               </button>
             </div>
           </form>
-          <!-- what if form-->
-          <div id="second-form">
-        <form id="form2" onsubmit="return false">
-          <div class="form-group">
-            <h4 id="label" class="text-center">What if?!</h4>
-            <input
-            type="text"
-            id="stock_symbol_inv"
-            required
-            minlength="1"
-            class="form-control"
-            placeholder="Stock Symbol"
-          />
-            <input
-              type="text"
-              id="ammount_inv"
-              required
-              minlength="1"
-              class="form-control"
-              placeholder="Investment dollar amount"
-            />
-            <input
-            type="text"
-            id="date_inv"
-            required
-            minlength="1"
-            class="form-control"
-            placeholder="Date"
-          />
-        <label id="what_if_result"></label>
-            <button
-              type="button"
-              id="calc_button"
-              class="btn btn-block btn-success"
-            >
-              Calculate
-            </button>
-          </div>
-        </form>
         </div>
       </div>
+      <div id="results" class="col-6"></div>
+<div class="col-3">
+  <!-- what if form-->
+  <div id="second-form">
+    <form id="form2" onsubmit="return false">
+      <div class="form-group">
+        <h4 id="label" class="text-center">What if?!</h4>
+        <input
+        type="text"
+        id="stock_symbol_inv"
+        required
+        minlength="1"
+        class="form-control"
+        placeholder="Stock Symbol"
+      />
+        <input
+          type="text"
+          id="ammount_inv"
+          required
+          minlength="1"
+          class="form-control"
+          placeholder="Investment dollar amount"
+        />
+        <input
+        type="text"
+        id="date_inv"
+        required
+        minlength="1"
+        class="form-control"
+        placeholder="Date"
+      />
+    <label id="what_if_result"></label>
+        <button
+          type="button"
+          id="calc_button"
+          class="btn btn-block btn-success"
+        >
+          Calculate
+        </button>
+      </div>
+    </form>
+    </div>
+  </div>
 
-      <div id="results" class="col-9"></div>
 
       </div>
       </div>
     </div>
+    
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -138,54 +131,8 @@
     ></script>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="script.js"></script>
 
-    <canvas id="mychart" width="400" height="400"></canvas>
-
-    <!-- <script>
-
-      var ctx = document.getElementById("myChart").getContext("2d");
-      var myChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-          datasets: [
-            {
-              label: "# of Votes",
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-              ],
-              borderColor: [
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)",
-              ],
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                },
-              },
-            ],
-          },
-        },
-      });
-    </script> -->
   </body>
 </html>

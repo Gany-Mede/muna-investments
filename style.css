@@ -5,6 +5,9 @@
   margin: 0px 0px 0px;
   padding: 5px 0px 5px;
 }
+.card-text {
+  font-family: "PT Serif", serif;
+}
 #app_name {
   font-family: "Noto Serif", serif;
 }
@@ -13,6 +16,10 @@
 }
 #picks {
   font-family: "Slabo 27px", serif;
+}
+#scroll-text {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 #results {
   display: flex;
@@ -32,9 +39,7 @@
 #add_button {
   margin-top: 10px;
 }
-#container {
-  padding: 10px;
-}
+
 #card {
   text-align: center;
   background-color: #f5f5f5;
@@ -43,8 +48,11 @@
   margin-bottom: 10px;
 }
 #second-form {
-  padding-top: 70px;
+  padding-top: 30%;
 }
 .form-control {
   margin-bottom: 5px;
+}
+#left-form {
+  padding-top: 1px;
 }
