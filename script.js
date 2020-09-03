@@ -1,57 +1,3 @@
-// fetch(
-//   "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=FB&apikey=Y11A972UH1743H94"
-// )
-//   .then((fbrep) => fbrep.json())
-//   .then((fbdata) => {
-//     document.getElementById("fb").innerHTML =
-//       "Facebook: " +
-//       parseFloat(fbdata["Global Quote"]["10. change percent"]).toFixed(2) +
-//       "%";
-//   });
-
-// fetch(
-//   "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=aapl&apikey=Y11A972UH1743H94"
-// )
-//   .then((aaplrep) => aaplrep.json())
-//   .then((aapldata) => {
-//     document.getElementById("aapl").innerHTML =
-//       "Apple: " +
-//       parseFloat(aapldata["Global Quote"]["10. change percent"]).toFixed(2) +
-//       "%";
-//   });
-
-// fetch(
-//   "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=amzn&apikey=Y11A972UH1743H94"
-// )
-//   .then((amznrep) => amznrep.json())
-//   .then((amzndata) => {
-//     document.getElementById("amzn").innerHTML =
-//       "Amazon: " +
-//       parseFloat(amzndata["Global Quote"]["10. change percent"]).toFixed(2) +
-//       "%";
-//   });
-
-// fetch(
-//   "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=nflx&apikey=Y11A972UH1743H94"
-// )
-//   .then((nflxrep) => nflxrep.json())
-//   .then((nflxdata) => {
-//     document.getElementById("nflx").innerHTML =
-//       "Netflix: " +
-//       parseFloat(nflxdata["Global Quote"]["10. change percent"]).toFixed(2) +
-//       "%";
-//   });
-// fetch(
-//   "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=nflx&apikey=Y11A972UH1743H94"
-// )
-//   .then((googrep) => googrep.json())
-//   .then((googdata) => {
-//     document.getElementById("goog").innerHTML =
-//       "Alphabet: " +
-//       parseFloat(googdata["Global Quote"]["10. change percent"]).toFixed(2) +
-//       "%";
-//   });
-
 document.getElementById("add_button").addEventListener("click", addCard);
 
 let companyName;
@@ -62,21 +8,22 @@ let percentage;
 let runningText = "";
 let fiveMonths = [];
 let stock;
-fetch(
-  "https://api.currentsapi.services/v1/search?keywords=NASDAQ&apiKey=lM5U7IsA_4X3K9ptIETiYPQrnZYhIHDd8puZBu8xo2_uA-5P"
-)
-  .then((news) => news.json())
-  .then((data) => {
-    data.news.forEach((item) => {
-      runningText += item.title + ". ";
-    });
-    document.getElementById("scroll-text").innerHTML = runningText;
-  });
+let historicalObject;
+// fetch(
+//   "https://api.currentsapi.services/v1/search?keywords=NASDAQ&apiKey=lM5U7IsA_4X3K9ptIETiYPQrnZYhIHDd8puZBu8xo2_uA-5P"
+// )
+//   .then((news) => news.json())
+//   .then((data) => {
+//     data.news.forEach((item) => {
+//       runningText += item.title + ". ";
+//     });
+//     document.getElementById("scroll-text").innerHTML = runningText;
+//   });
 
 function getData() {
   const beginURL =
     "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=";
-  const endURL = "&apikey=ZQCOR8BA6DE2OR3W";
+  const endURL = "&apikey=DNWKKV20PPR5UY6Q";
   const input = document.getElementById("stock_symbol").value;
   stock = input.toLowerCase();
   const apiURL = beginURL + stock + endURL;
@@ -94,11 +41,59 @@ function getData() {
         return;
       } else {
         createCard(symbol, currentPrice, percentage);
-        //drawChart(stock);
       }
     });
 
+  addInfo(stock);
+
   document.forms["form"].reset();
+}
+
+function addInfo(stock) {
+  beginUrlInfo = "https://www.alphavantage.co/query?function=OVERVIEW&symbol=";
+  endUrlInfo = "&apikey=PW8QG04LKVP3H7Y5";
+  completeURLInfo = beginUrlInfo + stock + endUrlInfo;
+  let name;
+  let address;
+  let industry;
+  let high52;
+  let low52;
+  let lastSplit;
+  let splitRatio;
+  let analystTarget;
+
+  fetch(completeURLInfo)
+    .then((resInfo) => resInfo.json())
+    .then((dataInfo) => {
+      name = dataInfo.Name;
+      address = dataInfo.Address;
+      industry = dataInfo.Sector;
+      analystTarget = dataInfo.AnalystTargetPrice;
+      high52 = dataInfo["52WeekHigh"];
+      low52 = dataInfo["52WeekLow"];
+      lastSplit = dataInfo.LastSplitDate;
+      splitRatio = dataInfo.LastSplitFactor;
+
+      let companyInfo = document.getElementById("pCompany");
+      companyInfo.innerHTML = "";
+
+      companyInfo.innerHTML =
+        name +
+        "<br>" +
+        address +
+        "<br>Industry: " +
+        industry +
+        "<br>Analyst Target Price: " +
+        analystTarget +
+        "<br>52 Week High: " +
+        high52 +
+        "<br>52 Week Low: " +
+        low52 +
+        "<br>Last Split: " +
+        lastSplit +
+        "<br>Split Factor: " +
+        splitRatio;
+    });
 }
 
 function createCard(symbol, currentPrice, percentage) {
@@ -150,7 +145,6 @@ function createCard(symbol, currentPrice, percentage) {
       charObj.forEach((item) => {
         fiveMonths.push(parseInt(item[1]["4. close"]));
       });
-      console.log(fiveMonths);
 
       let theChart = document.createElement("canvas");
       theChart.style.width = "400";
@@ -197,15 +191,4 @@ function createCard(symbol, currentPrice, percentage) {
 
 function addCard() {
   getData();
-}
-
-document
-  .getElementById("calc_button")
-  .addEventListener("click", calculateWhatIf);
-
-function calculateWhatIf() {
-  let input_inv = document.getElementById("stock_symbol_inv").value;
-  let stock_inv = input_inv.toLowerCase();
-  let ammount_inv = document.getElementById("ammount_inv").value;
-  let date = document.getElementById("date_inv").value;
 }

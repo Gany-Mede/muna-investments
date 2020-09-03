@@ -5,6 +5,9 @@
   margin: 0px 0px 0px;
   padding: 5px 0px 5px;
 }
+#pCompany {
+  font-family: "PT Serif", serif;
+}
 .card-text {
   font-family: "PT Serif", serif;
 }
@@ -48,7 +51,7 @@
   margin-bottom: 10px;
 }
 #second-form {
-  padding-top: 30%;
+  padding-top: 50px;
 }
 .form-control {
   margin-bottom: 5px;
