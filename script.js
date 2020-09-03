@@ -62,16 +62,16 @@ let percentage;
 let runningText = "";
 let fiveMonths = [];
 let stock;
-// fetch(
-//   "https://api.currentsapi.services/v1/search?keywords=NASDAQ&apiKey=lM5U7IsA_4X3K9ptIETiYPQrnZYhIHDd8puZBu8xo2_uA-5P"
-// )
-//   .then((news) => news.json())
-//   .then((data) => {
-//     data.news.forEach((item) => {
-//       runningText += item.title + ". ";
-//     });
-//     document.getElementById("scroll-text").innerHTML = runningText;
-//   });
+fetch(
+  "https://api.currentsapi.services/v1/search?keywords=NASDAQ&apiKey=lM5U7IsA_4X3K9ptIETiYPQrnZYhIHDd8puZBu8xo2_uA-5P"
+)
+  .then((news) => news.json())
+  .then((data) => {
+    data.news.forEach((item) => {
+      runningText += item.title + ". ";
+    });
+    document.getElementById("scroll-text").innerHTML = runningText;
+  });
 
 function getData() {
   const beginURL =
