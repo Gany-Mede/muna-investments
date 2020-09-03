@@ -83,7 +83,7 @@ function addInfo(stock) {
         address +
         "<br>Industry: " +
         industry +
-        "<br>Analyst Target Price: " +
+        "<br>Analyst Target Price: $" +
         analystTarget +
         "<br>52 Week High: " +
         high52 +
